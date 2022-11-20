@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+</head>
+
+<body id="backend">
+    <h1>Panel de control</h1>
+    <div class="container mb-4">
+
+        {{> header}}
+
+        {{> nav}}
+        <div class="table-responsive mt-4">
+
+            <table class="table caption-top">
+                <caption>Lista de productos</caption>
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col" style="max-width: 30%">Descripcion</th>
+                        <th scope="col" style="max-width: 10%">Características</th>
+                        <th scope="col" style="max-width: 5%">Precio ($)</th>
+                        <th scope="col" style="max-width: 3%">Stock </th>
+                        <th scope="col" style="max-width: 5%">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="admin-productos">
+                    {{#if productos}}
+                    {{#each productos}}
+                    <tr>
+                        <th scope="row">{{id}}</th>
+                        <td>{{nombre}}</td>
+                        <td><img src={{rutaImagen}} alt="imagen de {{titulo}}">
+                        </td>
+                        <td class="descripcion">
+                            <div>{{descripcion}} </div>
+                        </td>
+                        <td class="caracteristicas">
+                            {{caracteristicas}}
+                            <!-- <ul>
+                                <li> i7 </li>
+                                <li> 11gen </li>
+                                <li> 256gb SSD </li>
+                                <li> 16 gb RAM </li>
+                            </ul> -->
+                        </td>
+                        <td>{{dolarApeso precio}}</td>
+                        <td>{{stock}}</td>
+                        <td>
+                            <a href="/editar-producto/{{id}}">Editar </a><br>
+                            <a href="/borrar/{{id}}">Borrar</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <tr><td colspan="8">No hay productos, cargá alguno</td></tr>
+                    {{/if}}
+
+                </tbody>
+
+            </table>
+            <a href="/agregar-producto" class="btn btn-info">Agregar producto</a>
+
+        </div>
+
+    </div><!-- /container -->
+
+    {{> footer}}
+
+</body>
+
+</html>

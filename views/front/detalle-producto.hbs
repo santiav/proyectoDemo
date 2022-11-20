@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+</head>
+
+<body>
+
+    {{> header}}
+
+    {{> nav}}
+    <section class="single-product">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src={{producto.rutaImagen}} alt='' class="img-fluid" />
+                </div>
+                <div class="col-md-7">
+                    <div class="single-product-details">
+                        <h2>{{producto.nombre}}</h2>
+                        <p class="product-price">{{dolarApeso producto.precio}}</p>
+
+                        <p class="mt-2">
+                            {{producto.descripcion}}
+                        </p>
+
+                        
+                        {{#listado producto.caracteristicas}}
+                            <li>{{this}}</li>
+                        {{/listado}}
+                        <!-- <ul>
+                            <li> i7 </li>
+                            <li> 11gen </li>
+                            <li> 256gb SSD </li>
+                            <li> 16 gb RAM </li>
+                        </ul> -->
+
+                        <a href="mailto:comprar@comprar.com?subject=interes en el producto {{producto.nombre}} ID: {{producto.id}}"
+                            class="btn btn-info mt-20">Comprar</a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    {{> footer}}
+
+
+</body>
+
+</html>

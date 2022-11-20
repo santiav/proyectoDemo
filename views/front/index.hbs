@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+</head>
+
+<body>
+
+    {{> header}}
+
+    {{> nav}}
+    <div class="px-4 py-5 text-center bg-primary bg-gradient text-light">
+        <h1 class="display-5 fw-bold ">Mi emprendimiento</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4 text-light">Descripcion corta de lo que trata el negocio</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="/contacto" class="btn btn-dark btn-lg px-4">Contacto</a>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="products section">
+        <div class="container my-5 text-center">
+            <h2 class="fs-1">Productos</h2>
+            <div class="row">
+
+                {{#if productos}}
+                {{#each productos}}
+                <div class="col-md-3">
+                    <div class="product-item">
+                        <div class="product-thumb">
+
+                            <img class="img-fluid" src="{{rutaImagen}}" alt="product-img" />
+
+                            <div class="preview-meta">
+                                <ul>
+                                    <li>
+                                        <span data-bs-toggle="modal" data-bs-target="#product-modal-{{id}}">
+                                            <i class="bi bi-search"></i>
+                                        </span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h4><a href="detalle-producto.html">{{nombre}}</a></h4>
+                            <p class="price">{{dolarApeso precio}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal product-modal fade" id="product-modal-{{id}}" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="product-modal" aria-hidden="true">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="bi bi-x"></i></button>
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-6 col-xs-12">
+                                        <div class="modal-image">
+                                            <img class="img-fluid" src="{{rutaImagen}}" alt="product-img" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="product-short-details">
+                                            <h2 class="product-title">{{nombre}}</h2>
+                                            <p class="product-price">{{dolarApeso precio}}</p>
+                                            <div class="product-short-description">
+                                                {{descripcion}}
+                                                {{caracteristicas}}
+                                                <!-- <ul>
+                                                    <li> i7 </li>
+                                                    <li> 11gen </li>
+                                                    <li> 256gb SSD </li>
+                                                    <li> 16 gb RAM </li>
+                                                </ul> -->
+                                            </div>
+
+                                            <a href="/detalle-producto/{{id}}" class="btn btn-transparent d-block mb-3">Ver detalles
+                                                del producto</a>
+
+                                            <a href="mailto:comprar@comprar.com?subject=interes en el producto {{nombre}} ID: {{id}}"
+                                                class="btn btn-info mt-20">Comprar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <h2>¡Lo siento! no tenemos productos actualmente</h2>
+
+                {{/if}}
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer section text-center mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="social-media">
+                        <li>
+                            <a href="https://www.facebook.com/">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com/">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright-text">Copyright &copy;2021. Contacto <a
+                            href="mailto:">santiago.acosta@bue.edu.ar</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+        Essential Scripts
+        =====================================-->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+
+
+</body>
+
+</html>
