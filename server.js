@@ -19,7 +19,7 @@ let almacenamientoSesiones = new MySQLStore(opciones)
 
 
 app.use(session({
-    key: 'proyecto22008',
+    key: 'proyectoDemo',
     secret: process.env.SESSION_SECRET,
     store: almacenamientoSesiones,
     resave: true,
@@ -59,5 +59,5 @@ app.use(function(req, res, next) {
 
 
 app.listen(puerto, function() {
-    console.log("Servidor ONLINE en puerto 3000")
+    console.log(`Servidor ONLINE en puerto ${puerto}`)
 })
