@@ -1,5 +1,5 @@
 let mysql      = require('mysql');
-console.log(process.env.DB_HOST)
+
 let connection = mysql.createConnection({
 	host     : process.env.DB_HOST,
 	user     : process.env.DB_USER,
