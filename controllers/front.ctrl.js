@@ -16,7 +16,7 @@ const inicioGET = function (req, res) {
     
     let sql = 'SELECT * FROM productos'
     db.query(sql, function(err,data) {
-        if (err) res.send(`Ocurrió el siguiente error: ${err}`)
+        if (err) throw err;
         console.log(data)
         res.render('index', {
             titulo: "Mi emprendimiento",
@@ -90,7 +90,7 @@ const detalleProductoGET_ID = function (req, res) {
     let sql = "SELECT * FROM productos WHERE id = ?" // Seleccionar de la tabla productos, DONDE el registro tenga el ID 
     db.query(sql, id, function(err, data) {
         console.log("DATA -->", data[0])
-        if (err) res.send(`Ocurrió un error ${err.code}`)
+        if (err) throw err;
         if (data == "") { // Si no encuentra el ID, entonces obtendrá un vacio
 
             res.status(404).render('404', {

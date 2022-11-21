@@ -32,7 +32,7 @@
                     <div class="product-item">
                         <div class="product-thumb">
 
-                            <img class="img-fluid" src="{{rutaImagen}}" alt="product-img" />
+                            <img class="img-fluid" src="/uploads/{{rutaImagen}}" alt="product-img" />
 
                             <div class="preview-meta">
                                 <ul>
@@ -63,7 +63,7 @@
                                 <div class="row">
                                     <div class="col-md-8 col-sm-6 col-xs-12">
                                         <div class="modal-image">
-                                            <img class="img-fluid" src="{{rutaImagen}}" alt="product-img" />
+                                            <img class="img-fluid" src="/uploads/{{rutaImagen}}" alt="product-img" />
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -72,13 +72,9 @@
                                             <p class="product-price">{{dolarApeso precio}}</p>
                                             <div class="product-short-description">
                                                 {{descripcion}}
-                                                {{caracteristicas}}
-                                                <!-- <ul>
-                                                    <li> i7 </li>
-                                                    <li> 11gen </li>
-                                                    <li> 256gb SSD </li>
-                                                    <li> 16 gb RAM </li>
-                                                </ul> -->
+                                                {{#listado caracteristicas}}
+                                                <li>{{this}}</li>
+                                                {{/listado}}
                                             </div>
 
                                             <a href="/detalle-producto/{{id}}" class="btn btn-transparent d-block mb-3">Ver detalles

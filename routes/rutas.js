@@ -36,7 +36,7 @@ const {
 router.get('/admin', adminGET)
 
 router.get('/agregar-producto', agregarProductoGET)
-router.post('/agregar', agregarProductoPOST)
+router.post('/agregar-producto', agregarProductoPOST)
 
 router.get('/editar-producto/:id', editarProducto_ID)
 router.post('/editar/:id', editarProductoPOST_ID)

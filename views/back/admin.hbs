@@ -31,34 +31,32 @@
 
                 <tbody id="admin-productos">
                     {{#if productos}}
-                    {{#each productos}}
-                    <tr>
-                        <th scope="row">{{id}}</th>
-                        <td>{{nombre}}</td>
-                        <td><img src={{rutaImagen}} alt="imagen de {{titulo}}">
-                        </td>
-                        <td class="descripcion">
-                            <div>{{descripcion}} </div>
-                        </td>
-                        <td class="caracteristicas">
-                            {{caracteristicas}}
-                            <!-- <ul>
-                                <li> i7 </li>
-                                <li> 11gen </li>
-                                <li> 256gb SSD </li>
-                                <li> 16 gb RAM </li>
-                            </ul> -->
-                        </td>
-                        <td>{{dolarApeso precio}}</td>
-                        <td>{{stock}}</td>
-                        <td>
-                            <a href="/editar-producto/{{id}}">Editar </a><br>
-                            <a href="/borrar/{{id}}">Borrar</a>
-                        </td>
-                    </tr>
-                    {{/each}}
+                        {{#each productos}}
+                            <tr>
+                                <th scope="row">{{id}}</th>
+                                <td>{{nombre}}</td>
+                                <td><img src="/uploads/{{rutaImagen}}" alt="imagen de {{titulo}}">
+                                </td>
+                                <td class="descripcion">
+                                    <div>{{descripcion}} </div>
+                                </td>
+                                <td class="caracteristicas">
+                                    {{#listado caracteristicas}}
+                                        <li>{{this}}</li>
+                                    {{/listado}}
+                                </td>
+                                <td>{{dolarApeso precio}}</td>
+                                <td>{{stock}}</td>
+                                <td>
+                                    <a href="/editar-producto/{{id}}">Editar </a><br>
+                                    <a href="/borrar/{{id}}">Borrar</a>
+                                </td>
+                            </tr>
+                        {{/each}}
                     {{else}}
-                    <tr><td colspan="8">No hay productos, cargá alguno</td></tr>
+                        <tr>
+                            <td colspan="8">No hay productos, cargá alguno</td>
+                        </tr>
                     {{/if}}
 
                 </tbody>
